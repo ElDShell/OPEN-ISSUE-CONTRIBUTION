@@ -35,6 +35,11 @@ New to open source? This repo is built for you. No experience with big codebases
 
 Full guide: [CONTRIBUTING.md](CONTRIBUTING.md)
 
+## CLI options
+```bash
+Training --string-length hello (Should return 5)
+```
+
 ## 🗂 Issue labels
 
 | Label | Meaning |

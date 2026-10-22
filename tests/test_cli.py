@@ -22,3 +22,20 @@ def test_version(capsys):
         assert e.code == 0
     captured = capsys.readouterr()
     assert "Training 0.1.0" in captured.out
+
+
+def test_no_arguments_shows_help(capsys):
+    # A bare `python -m Training` used to report the length of a default that
+    # was never passed; it should explain the tool instead.
+    main([])
+    captured = capsys.readouterr()
+    assert "usage:" in captured.out
+    assert "--string-length" in captured.out
+    assert "The length of the string is:" not in captured.out
+
+
+def test_empty_string_reports_zero(capsys):
+    # An explicitly empty value is still a value, so its length is 0.
+    main(["--string-length", ""])
+    captured = capsys.readouterr()
+    assert "The length of the string is: 0" in captured.out
